@@ -1,8 +1,8 @@
 <?php
 
-namespace Bavix\CP\Actions;
+namespace Bavix\App\Admin\Actions;
 
-use Bavix\CP\Interfaces\Action;
+use Bavix\App\Admin\Interfaces\Action;
 
 abstract class DefaultButton implements Action
 {

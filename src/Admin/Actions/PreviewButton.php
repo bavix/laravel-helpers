@@ -1,6 +1,6 @@
 <?php
 
-namespace Bavix\CP\Actions;
+namespace Bavix\App\Admin\Actions;
 
 class PreviewButton extends DefaultButton
 {

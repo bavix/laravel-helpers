@@ -1,6 +1,6 @@
 <?php
 
-namespace Bavix\CP\Interfaces;
+namespace Bavix\App\Admin\Interfaces;
 
 interface Action
 {
