@@ -12,7 +12,7 @@ trait ModelURL
         return route($this->route, ...$this->urlArguments());
     }
 
-    public function urlArguments()
+    public function urlArguments(): array
     {
         return [
             $this->id,
