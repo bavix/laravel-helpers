@@ -15,12 +15,17 @@
   ],
   "require": {
     "php": ">=7.0",
-    "laravel/framework": "5.4.x|5.5.x"
+    "laravel/framework": "5.5.*",
+    "spatie/laravel-tags": "^2.0",
+    "bavix/sdk": "^1.0"
   },
   "autoload": {
     "files": [
-      "src/cookies.php"
-    ]
+      "helpers/cookies.php"
+    ],
+    "psr-4": {
+      "Bavix\\": "src/"
+    }
   },
   "extra": {
     "branch-alias": {
