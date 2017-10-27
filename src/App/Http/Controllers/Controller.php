@@ -2,6 +2,7 @@
 
 namespace Bavix\App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -52,7 +53,7 @@ class Controller extends BaseController
     {
         if (!isset($arguments[2]))
         {
-            $arguments[2] = 365 * (24) * 60;
+            $arguments[2] = Carbon::now()->addYear();
         }
 
         $this->cookies[] = \cookie(...$arguments);
