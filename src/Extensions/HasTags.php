@@ -2,11 +2,22 @@
 
 namespace Bavix\Exceptions;
 
-use Spatie\Tags\HasTags;
+use Spatie\Tags\Tag;
 
-trait ModelTag
+trait HasTags
 {
-    use HasTags;
+
+    use \Spatie\Tags\HasTags;
+
+    public static function getTagClassName(): string
+    {
+        if (class_exists(App\Models\Tag::class))
+        {
+            return App\Models\Tag::class;
+        }
+
+        return Tag::class;
+    }
 
     public function setTagAttribute($string)
     {
@@ -21,4 +32,5 @@ trait ModelTag
 
         $this->syncTags($tags);
     }
+
 }
