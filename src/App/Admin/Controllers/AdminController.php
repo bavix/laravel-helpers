@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Admin\Controllers;
+namespace Bavix\App\Admin\Controllers;
 
 use Bavix\App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
