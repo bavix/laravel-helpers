@@ -9,7 +9,7 @@ trait ModelURL
 
     public function url()
     {
-        return route($this->route, ...$this->urlArguments());
+        return route($this->route, $this->urlArguments());
     }
 
     public function urlArguments(): array
