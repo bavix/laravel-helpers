@@ -7,6 +7,6 @@ class PreviewButton extends DefaultButton
     protected $icon = 'fa-eye';
 
     protected $attributes = [
-        'taget' => '_blank'
+        'target' => '_blank'
     ];
 }
