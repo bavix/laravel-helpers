@@ -27,13 +27,17 @@ abstract class DefaultButton implements Action
     /**
      * DefaultButton constructor.
      *
-     * @param       $uri
-     * @param array $attributes
+     * @param string $uri
+     * @param array  $attributes
      */
-    public function __construct($uri, array $attributes = [])
+    public function __construct($uri, array $attributes = null)
     {
-        $this->uri        = $uri;
-        $this->attributes = $attributes;
+        $this->uri = $uri;
+
+        if ($attributes)
+        {
+            $this->attributes = $attributes;
+        }
     }
 
     /**
@@ -45,7 +49,7 @@ abstract class DefaultButton implements Action
 
         foreach ($this->attributes as $name => $data)
         {
-            $attributes[] = $name . '="' . implode(' ', $data) . '"';
+            $attributes[] = $name . '="' . implode(' ', (array)$data) . '"';
         }
 
         return '<a href="' . $this->uri . '" ' . implode(' ', $attributes) . '>
