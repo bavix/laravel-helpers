@@ -8,29 +8,36 @@ class Blueprint extends \Illuminate\Database\Schema\Blueprint
 {
 
     /**
-     * @param int $precision
+     * @param string $column
      *
-     * @return $this
+     * @return \Illuminate\Support\Fluent
      */
-    public function createdAt($precision = 0)
+    public function mediumText($column)
     {
-        $this->timestamp('created_at', $precision)
-            ->default(DB::raw('CURRENT_TIMESTAMP'));
-
-        return $this;
+        // This magic cleanly and is mediumText!
+        return $this->string($column, 16777215);
     }
 
     /**
      * @param int $precision
      *
-     * @return $this
+     * @return \Illuminate\Support\Fluent
+     */
+    public function createdAt($precision = 0)
+    {
+        return $this->timestamp('created_at', $precision)
+            ->default(DB::raw('CURRENT_TIMESTAMP'));
+    }
+
+    /**
+     * @param int $precision
+     *
+     * @return \Illuminate\Support\Fluent
      */
     public function updatedAt($precision = 0)
     {
-        $this->timestamp('updated_at', $precision)
+        return $this->timestamp('updated_at', $precision)
             ->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
-
-        return $this;
     }
 
     /**
@@ -40,7 +47,10 @@ class Blueprint extends \Illuminate\Database\Schema\Blueprint
      */
     public function timestamps($precision = 0)
     {
-        return $this->createdAt($precision)->updatedAt($precision);
+        $this->createdAt($precision);
+        $this->updatedAt($precision);
+
+        return $this;
     }
 
 }
