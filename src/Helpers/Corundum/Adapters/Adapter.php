@@ -2,8 +2,8 @@
 
 namespace Bavix\Helpers\Corundum\Adapters;
 
-use Bavix\Helpers\Corundum\DriverInterface;
 use Bavix\Helpers\Corundum\Corundum;
+use Bavix\Helpers\Corundum\DriverInterface;
 use Bavix\Slice\Slice;
 use Intervention\Image\Image;
 
@@ -95,15 +95,15 @@ abstract class Adapter implements DriverInterface
     }
 
     /**
-     * @param Image         $image
-     * @param Slice         $slice
-     * @param \ImagickPixel $pixel
+     * @param Image  $image
+     * @param Slice  $slice
+     * @param string $color
      *
      * @return Image
      */
-    protected function handler(Image $image, Slice $slice, \ImagickPixel $pixel = null): Image
+    protected function handler(Image $image, Slice $slice, string $color = null): Image
     {
-        $pixel = $this->pixel($pixel);
+        $color = $color ?: 'rgba(0, 0, 0, 0)';
 
         $image->resize(
             $slice->getRequired('received.width'),
@@ -115,12 +115,12 @@ abstract class Adapter implements DriverInterface
             $height = $slice->getRequired('config.height'),
             'center',
             false,
-            $pixel
+            $color
         );
 
         $fill = $this->corundum
             ->imageManager()
-            ->canvas($width, $height, $pixel);
+            ->canvas($width, $height, $color);
 
         $fill->fill(
             $image,
@@ -142,21 +142,6 @@ abstract class Adapter implements DriverInterface
         }
 
         return $this->image;
-    }
-
-    /**
-     * @param \ImagickPixel $pixel
-     *
-     * @return \ImagickPixel
-     */
-    protected function pixel(\ImagickPixel $pixel = null): \ImagickPixel
-    {
-        if (!$pixel)
-        {
-            return new \ImagickPixel('rgba(0, 0, 0, 0)');
-        }
-
-        return $pixel;
     }
 
 }

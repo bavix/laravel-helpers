@@ -17,7 +17,7 @@ class None extends Adapter
     {
         $image = $this->image();
 
-        $width = $slice->getRequired('width');
+        $width  = $slice->getRequired('width');
         $height = $slice->getRequired('height');
 
         $widthFit  = $image->width() >= $image->height() ? $width : null;
@@ -36,16 +36,16 @@ class None extends Adapter
             $image->fit($widthFit, $heightFit);
         }
 
-        $pixel = $this->corundum->pixel($slice);
+        $color = $slice->getRequired('color');
         $fill  = $this->corundum->imageManager()
-            ->canvas($width, $height, $pixel);
+            ->canvas($width, $height, $color);
 
         $image->resizeCanvas(
             $width,
             $height,
             'center',
             false,
-            $pixel
+            $color
         );
 
         $point = $this->point($fill, $image);

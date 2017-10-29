@@ -3,7 +3,6 @@
 namespace Bavix\Helpers\Corundum;
 
 use Bavix\Helpers\Arr;
-use Bavix\Helpers\Corundum\DriverInterface;
 use Bavix\SDK\PathBuilder;
 use Bavix\Slice\Slice;
 use Illuminate\Support\Facades\Storage;
@@ -76,21 +75,6 @@ class Corundum
     public function type(): string
     {
         return $this->type;
-    }
-
-    /**
-     * @param Slice|string $color
-     *
-     * @return \ImagickPixel
-     */
-    public function pixel($color): \ImagickPixel
-    {
-        if (\is_object($color) && $color instanceof Slice)
-        {
-            $color = (string)$color->getRequired('color');
-        }
-
-        return new \ImagickPixel($color);
     }
 
     /**

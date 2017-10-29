@@ -3,8 +3,6 @@
 namespace Bavix\Helpers\Corundum;
 
 use Bavix\Exceptions\Invalid;
-use Bavix\Helpers\Corundum\Corundum;
-use Bavix\Helpers\PregMatch;
 use Bavix\Slice\Slice;
 
 class Runner

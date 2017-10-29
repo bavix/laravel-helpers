@@ -14,7 +14,7 @@ $adapter  = new \Bavix\Helpers\Corundum\Adapters\None(
 
 $slice = new Bavix\Slice\Slice([
     'width'  => '600',
-    'height' => '800',
+    'height' => '600',
     'color' => '#f00'
 ]);
 

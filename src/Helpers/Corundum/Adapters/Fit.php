@@ -22,7 +22,7 @@ class Fit extends Adapter
         $pHeight = $slice->getRequired('height');
 
         $width  = $pWidth >= $pHeight ? $pHeight : null;
-        $height = $pWidth > $pHeight ? $pWidth : null;
+        $height = $pWidth < $pHeight ? $pWidth : null;
 
         return $image->resize($width, $height, function (Constraint $constraint) {
             $constraint->aspectRatio();

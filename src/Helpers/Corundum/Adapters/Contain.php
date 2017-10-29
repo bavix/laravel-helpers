@@ -21,7 +21,7 @@ class Contain extends Adapter
         return $this->handler(
             $image,
             $sizes,
-            $this->corundum->pixel($slice)
+            $slice->getRequired('color')
         );
     }
 
