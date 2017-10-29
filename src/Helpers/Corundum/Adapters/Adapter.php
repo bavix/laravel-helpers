@@ -122,13 +122,20 @@ abstract class Adapter implements DriverInterface
             ->imageManager()
             ->canvas($width, $height, $color);
 
-        $fill->fill(
+        if ($this->corundum->driver() === 'gd')
+        {
+            return $image->fill(
+                $fill,
+                $slice->getRequired('shift.width'),
+                $slice->getRequired('shift.height')
+            );
+        }
+
+        return $fill->fill(
             $image,
             $slice->getRequired('shift.width'),
             $slice->getRequired('shift.height')
         );
-
-        return $fill;
     }
 
     /**

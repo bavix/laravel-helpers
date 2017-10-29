@@ -64,6 +64,14 @@ class Corundum
     /**
      * @return string
      */
+    public function driver(): string
+    {
+        return $this->driver;
+    }
+
+    /**
+     * @return string
+     */
     public function user(): string
     {
         return $this->user;
