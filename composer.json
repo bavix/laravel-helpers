@@ -26,6 +26,7 @@
   },
   "autoload": {
     "files": [
+      "helpers/functions.php",
       "helpers/cookies.php",
       "helpers/uploads.php"
     ],

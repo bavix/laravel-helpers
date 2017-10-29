@@ -124,9 +124,7 @@ abstract class Adapter implements DriverInterface
 
         if ($this->corundum->driver() === 'gd')
         {
-            $img   = $fill;
-            $fill  = $image;
-            $image = $img;
+            bx_swap($fill, $image);
         }
 
         return $fill->fill(
