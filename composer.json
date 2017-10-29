@@ -26,7 +26,8 @@
   },
   "autoload": {
     "files": [
-      "helpers/cookies.php"
+      "helpers/cookies.php",
+      "helpers/uploads.php"
     ],
     "psr-4": {
       "Bavix\\": "src/"
