@@ -1,6 +1,6 @@
 <?php
 
-namespace Bavix\Helpers\Image\Adapters;
+namespace Bavix\Helpers\Corundum\Adapters;
 
 use Bavix\Slice\Slice;
 use Intervention\Image\Constraint;

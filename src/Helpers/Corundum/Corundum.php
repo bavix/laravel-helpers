@@ -1,6 +1,6 @@
 <?php
 
-namespace Bavix\Helpers\Image;
+namespace Bavix\Helpers\Corundum;
 
 use Bavix\Helpers\Arr;
 use Bavix\Helpers\Corundum\DriverInterface;

@@ -2,7 +2,7 @@
 
 namespace Bavix\Helpers\Corundum;
 
-use Bavix\Helpers\Image\Corundum;
+use Bavix\Helpers\Corundum\Corundum;
 use Bavix\Slice\Slice;
 use Intervention\Image\Image;
 

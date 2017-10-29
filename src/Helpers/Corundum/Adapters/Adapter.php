@@ -1,9 +1,9 @@
 <?php
 
-namespace Bavix\Helpers\Image\Adapters;
+namespace Bavix\Helpers\Corundum\Adapters;
 
 use Bavix\Helpers\Corundum\DriverInterface;
-use Bavix\Helpers\Image\Corundum;
+use Bavix\Helpers\Corundum\Corundum;
 use Bavix\Slice\Slice;
 use Intervention\Image\Image;
 
