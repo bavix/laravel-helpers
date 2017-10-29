@@ -65,13 +65,21 @@ class Runner
     }
 
     /**
+     * @return array
+     */
+    public function config(): array
+    {
+        return \config('corundum')->all();
+    }
+
+    /**
      * @param string $path
      *
      * @throws Invalid
      */
     public function apply(string $path)
     {
-        foreach (\config('corundum')->all() as $name => $config)
+        foreach ($this->config() as $name => $config)
         {
             $slice = new Slice($config);
             $type  = $this->type($slice);
