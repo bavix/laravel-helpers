@@ -124,11 +124,9 @@ abstract class Adapter implements DriverInterface
 
         if ($this->corundum->driver() === 'gd')
         {
-            return $image->fill(
-                $fill,
-                $slice->getRequired('shift.width'),
-                $slice->getRequired('shift.height')
-            );
+            $img   = $fill;
+            $fill  = $image;
+            $image = $img;
         }
 
         return $fill->fill(

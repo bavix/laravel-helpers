@@ -8,7 +8,7 @@ $slice = new \Bavix\Slice\Slice([
 ]);
 
 $corundum = new \Bavix\Helpers\Corundum\Corundum($slice);
-$adapter  = new \Bavix\Helpers\Corundum\Adapters\None(
+$adapter  = new \Bavix\Helpers\Corundum\Adapters\Contain(
     $corundum,
     __DIR__ . '/images/test.png'
 );
