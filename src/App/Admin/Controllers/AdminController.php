@@ -8,6 +8,8 @@ use Encore\Admin\Facades\Admin;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Layout\Content;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 abstract class AdminController extends Controller
 {
@@ -35,6 +37,14 @@ abstract class AdminController extends Controller
     protected function title(): string
     {
         return $this->localKey ? __($this->localKey) : $this->title;
+    }
+
+    /**
+     * @return Model
+     */
+    protected function getAdmin(): Model
+    {
+        return Auth::guard('admin')->user();
     }
 
     /**
