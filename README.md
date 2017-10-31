@@ -44,3 +44,13 @@ class File extends Model
     // ...
 }
 ```
+
+### helpers
+
+ - [x] cookies
+    - [x] bx_decrypt($mixed)
+    - [x] bx_cookie($key, $default = null)
+ - [x] functions
+    - [x] bx_swap($first, $second)
+ - [x] uploads
+    - [x] bx_uploaded_file()
