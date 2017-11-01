@@ -3,6 +3,7 @@
 namespace Bavix\Helpers\Corundum;
 
 use Bavix\Exceptions\Invalid;
+use Bavix\Helpers\Dir;
 use Bavix\Slice\Slice;
 
 class Runner
@@ -27,11 +28,15 @@ class Runner
     public function thumbnail(string $path, string $thumbnail): string
     {
         // original  = /<user>/original/xx/yy/xxyyzzzz.<format>
-        return preg_replace(
+        $fullPath = preg_replace(
             '~/' . $this->corundum->type() . '/~',
             '/' . $thumbnail . '/',
             $path
         );
+
+        Dir::make(dirname($fullPath));
+
+        return $fullPath;
     }
 
     /**
@@ -85,7 +90,7 @@ class Runner
             $this->adapter($type, $path)
                 ->apply($slice)
                 ->save(
-                    $this->thumbnail($path, $name),
+                    $this->thumbnail($this->corundum->imagePath($path), $name),
                     $slice->getData('quality')
                 );
         }
