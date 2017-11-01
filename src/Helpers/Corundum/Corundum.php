@@ -107,7 +107,7 @@ class Corundum
      */
     public function imagePath(string $basename): string
     {
-        $path = PathBuilder::sharedInstance()
+        $path = 'image/' . PathBuilder::sharedInstance()
             ->generate($this->user(), $this->type(), $basename);
 
         return Storage::disk($this->disk)
