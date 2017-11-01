@@ -67,7 +67,7 @@ class Runner
      */
     public function config(): array
     {
-        return \config('corundum')->all();
+        return \config('corundum');
     }
 
     /**
