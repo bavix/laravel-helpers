@@ -77,33 +77,39 @@ class Runner
     }
 
     /**
-     * @param string $path
-     * @param bool   $checkExists
+     * @param string  $name
+     * @param Command $command
+     * @param bool    $checkExists
      *
      * @throws Invalid
      */
-    public function apply(string $path, $checkExists = false)
+    public function apply(string $name, Command $command = null, $checkExists = false)
     {
-        foreach ($this->config() as $name => $config)
+        foreach ($this->config() as $key => $config)
         {
             $slice = new Slice($config);
             $type  = $this->type($slice);
-            $path  = $this->thumbnail(
-                $this->corundum->imagePath($path), 
-                $name
+            $thumb = $this->thumbnail(
+                $this->corundum->imagePath($name),
+                $key
             );
-            
-            if ($checkExists && File::isFile($path))
+
+            if ($checkExists && File::isFile($thumb))
             {
                 continue;
             }
 
-            $this->adapter($type, $path)
+            $this->adapter($type, $name)
                 ->apply($slice)
                 ->save(
-                    $path,
+                    $thumb,
                     $slice->getData('quality')
                 );
+
+            if ($command)
+            {
+                $command->info('Thumbnail `' . $key . '` of the file `' . $name . '` is created!');
+            }
         }
     }
 
