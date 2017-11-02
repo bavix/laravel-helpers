@@ -6,6 +6,7 @@ use Bavix\Exceptions\Invalid;
 use Bavix\Helpers\Dir;
 use Bavix\Helpers\File;
 use Bavix\Slice\Slice;
+use Illuminate\Console\Command;
 
 class Runner
 {
