@@ -4,6 +4,7 @@ namespace Bavix\Helpers\Corundum;
 
 use Bavix\Exceptions\Invalid;
 use Bavix\Helpers\Dir;
+use Bavix\Helpers\File;
 use Bavix\Slice\Slice;
 
 class Runner
@@ -77,20 +78,30 @@ class Runner
 
     /**
      * @param string $path
+     * @param bool   $checkExists
      *
      * @throws Invalid
      */
-    public function apply(string $path)
+    public function apply(string $path, $checkExists = false)
     {
         foreach ($this->config() as $name => $config)
         {
             $slice = new Slice($config);
             $type  = $this->type($slice);
+            $path  = $this->thumbnail(
+                $this->corundum->imagePath($path), 
+                $name
+            );
+            
+            if ($checkExists && File::isFile($path))
+            {
+                continue;
+            }
 
             $this->adapter($type, $path)
                 ->apply($slice)
                 ->save(
-                    $this->thumbnail($this->corundum->imagePath($path), $name),
+                    $path,
                     $slice->getData('quality')
                 );
         }
