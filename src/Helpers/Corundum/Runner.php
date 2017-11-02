@@ -32,7 +32,7 @@ class Runner
         // original  = /<user>/original/xx/yy/xxyyzzzz.<format>
         $fullPath = preg_replace(
             '~/' . $this->corundum->type() . '/~',
-            '/' . $thumbnail . '/',
+            '/thumbs/' . $thumbnail . '/',
             $path
         );
 
