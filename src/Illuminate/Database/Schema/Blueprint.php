@@ -8,17 +8,6 @@ class Blueprint extends \Illuminate\Database\Schema\Blueprint
 {
 
     /**
-     * @param string $column
-     *
-     * @return \Illuminate\Support\Fluent
-     */
-    public function mediumText($column)
-    {
-        // This magic cleanly and is mediumText!
-        return $this->string($column, 16777215);
-    }
-
-    /**
      * @param int $precision
      *
      * @return \Illuminate\Support\Fluent
