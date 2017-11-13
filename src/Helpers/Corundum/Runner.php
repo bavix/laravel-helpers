@@ -94,8 +94,10 @@ class Runner
                 $this->corundum->imagePath($name),
                 $key
             );
+            
+            $updated = File::isFile($thumb);
 
-            if ($checkExists && File::isFile($thumb))
+            if ($checkExists && $updated)
             {
                 continue;
             }
@@ -109,7 +111,11 @@ class Runner
 
             if ($command)
             {
-                $command->info('Thumbnail `' . $key . '` of the file `' . $name . '` is created!');
+                if ($updated) {
+                    $command->warn('Thumbnail `' . $key . '` of the file `' . $name . '` is updated!');
+                } else {
+                    $command->info('Thumbnail `' . $key . '` of the file `' . $name . '` is created!');
+                }
             }
         }
     }
