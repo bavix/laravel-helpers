@@ -16,6 +16,14 @@ trait MultipleImageTrait
     abstract public function images();
 
     /**
+     * @return array
+     */
+    public function getGalleryAttribute()
+    {
+        return $this->images->pluck('path');
+    }
+
+    /**
      * @param array $pictures
      */
     public function setGalleryAttribute(array $pictures)
