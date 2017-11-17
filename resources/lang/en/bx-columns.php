@@ -13,6 +13,7 @@ return [
     'login'       => 'Login',
     'password'    => 'Password',
     'phone'       => 'Phone',
+    'currency'  => 'Currency',
     'url'       => 'URL',
     'code'       => 'Code',
     'email'       => 'Email',
