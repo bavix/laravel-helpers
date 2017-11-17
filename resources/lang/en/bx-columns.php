@@ -13,6 +13,8 @@ return [
     'login'       => 'Login',
     'password'    => 'Password',
     'phone'       => 'Phone',
+    'url'       => 'URL',
+    'code'       => 'Code',
     'email'       => 'Email',
 
     'min' => 'Minimum',
