@@ -6,6 +6,7 @@ return [
 
     'user'        => 'User',
     'users'       => 'Users',
+    'full_name'   => 'Full name',
     'last_name'   => 'Last name',
     'name'        => 'First name',
     'middle_name' => 'Middle name',
