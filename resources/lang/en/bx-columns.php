@@ -14,6 +14,7 @@ return [
     'password'    => 'Password',
     'phone'       => 'Phone',
     'currency'  => 'Currency',
+    'job_title' => 'Job title',
     'url'       => 'URL',
     'code'       => 'Code',
     'email'       => 'Email',
