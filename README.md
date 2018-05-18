@@ -54,3 +54,9 @@ class File extends Model
     - [x] bx_swap($first, $second)
  - [x] uploads
     - [x] bx_uploaded_file()
+    
+---
+Supported by
+
+[![Supported by JetBrains](https://cdn.rawgit.com/bavix/development-through/46475b4b/jetbrains.svg)](https://www.jetbrains.com/)
+
