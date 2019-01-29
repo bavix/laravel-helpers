@@ -1,6 +1,6 @@
 <?php
 
-namespace Bavix\Exceptions;
+namespace Bavix\Extensions;
 
 use Spatie\Tags\Tag;
 
