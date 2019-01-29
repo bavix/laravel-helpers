@@ -4,7 +4,7 @@
  * This expansion is necessary when using the laravel-admin component.
  */
 
-namespace Bavix\Exceptions;
+namespace Bavix\Extensions;
 
 use Illuminate\Support\Facades\Storage;
 use Bavix\Helpers\PregMatch;
